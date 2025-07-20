@@ -14,46 +14,75 @@
             <form class="quiz">
                 <div class="question">
                     <h2>1. What house at Hogwarts does harry belong to?</h2>
-                    <label><input type="radio" name="q1">Ravenclaw</label>
-                    <label><input type="radio" name="q1">Hufflepuff</label>
-                    <label><input type="radio" name="q1">Griffindor</label>
-                    <label><input type="radio" name="q1">Slytherin</label>
+                    <label><input type="radio" name="q1" value="Ravenclaw">Ravenclaw</label>
+                    <label><input type="radio" name="q1" value="Hufflepuff">Hufflepuff</label>
+                    <label><input type="radio" name="q1" value="Gryffindor">Gryffindor</label>
+                    <label><input type="radio" name="q1" value="Slytherin">Slytherin</label>
                 </div>
                 <div>
                     <h2>2. What was the name of Hagrid's pet?</h2>
-                    <label><input type="radio" name="q1">Aragog</label>
-                    <label><input type="radio" name="q1">Spidy</label>
-                    <label><input type="radio" name="q1">Acromantula</label>
-                    <label><input type="radio" name="q1">Pup</label>
+                    <label><input type="radio" name="q2" value="Aragog">Aragog</label>
+                    <label><input type="radio" name="q2" value="Spidy">Spidy</label>
+                    <label><input type="radio" name="q2" value="Acromantula">Acromantula</label>
+                    <label><input type="radio" name="q2" value="Pup">Pup</label>
                 </div>
                 <div>
                     <h2>3. Dobby was what type of magical being?</h2>
-                    <label><input type="radio" name="q1">A troll</label>
-                    <label><input type="radio" name="q1">A House-elf</label>
-                    <label><input type="radio" name="q1">A Gnome</label>
-                    <label><input type="radio" name="q1">A Pixie</label>
+                    <label><input type="radio" name="q3" value="A troll">A troll</label>
+                    <label><input type="radio" name="q3" value="A House-elf">A House-elf</label>
+                    <label><input type="radio" name="q3" value="A Gnome">A Gnome</label>
+                    <label><input type="radio" name="q3" value="A Pixie">A Pixie</label>
                 </div>
                 <div>
                     <h2>4. Before he was freed, which family did Dobby belong to?</h2>
-                    <label><input type="radio" name="q1">The Malfoys</label>
-                    <label><input type="radio" name="q1">The Blacks</label>
-                    <label><input type="radio" name="q1">The Weaselys</label>
-                    <label><input type="radio" name="q1">The Dumbledores</label>
+                    <label><input type="radio" name="q4" value="The Malfoys">The Malfoys</label>
+                    <label><input type="radio" name="q4" value="The Blacks">The Blacks</label>
+                    <label><input type="radio" name="q4" value="The Weaselys">The Weaselys</label>
+                    <label><input type="radio" name="q4" value="The Dumbledores">The Dumbledores</label>
                 </div>
                 <div>
                     <h2>5. Which Hogwarts founder did the locket that became a horcux belong to originally?</h2>
-                    <label><input type="radio" name="q1">Godric Griffindor</label>
-                    <label><input type="radio" name="q1">Rowena Ravenclaw</label>
-                    <label><input type="radio" name="q1">Helga Hufflepuff</label>
-                    <label><input type="radio" name="q1">Salazar Slytherin</label>
+                    <label><input type="radio" name="q5" value="Godric Gryffindor">Godric Gryffindor</label>
+                    <label><input type="radio" name="q5" value="Rowena Ravenclaw">Rowena Ravenclaw</label>
+                    <label><input type="radio" name="q5" value="Helga Hufflepuff">Helga Hufflepuff</label>
+                    <label><input type="radio" name="q5" value="Salazar Slytherin">Salazar Slytherin</label>
                 </div>
-
-                <button type="submit" class="submit-btn">Submit</button>
+                <br>
+                <button type="button" onclick="showResult()">Submit</button>
+                <button type="button" onclick="location.reload()">Try again</button>
+                <p id="result" style="display: none;"><h3>✨You're a magical being ✨</h3></p>
             </form>
-
-            <div class="result">
-                <h2>You're a magical being ✨</h2>
             </div>
         </div>
+    <script>
+        function showResult(){
+            let score=0;
+
+            let q1=document.querySelector('input[name="q1"]:checked');
+            if (q1&&q1.value==="Gryffindor"){
+                score++;
+            }
+            let q2=document.querySelector('input[name="q2"]:checked');
+            if (q2&&q2.value==="Aragog"){
+                score++;
+            }
+            let q3=document.querySelector('input[name="q3"]:checked');
+            if (q3&&q3.value==="A House-elf"){
+                score++;
+            }
+            let q4=document.querySelector('input[name="q4"]:checked');
+            if (q4&&q4.value==="The Malfoys"){
+                score++;
+            }
+            let q5=document.querySelector('input[name="q5"]:checked');
+            if (q5&&q5.value==="Salazar Slytherin"){
+                score++;
+            }
+
+            let resultDiv=document.getElementById("result");
+            resultDiv.style.display="block";
+            resultDiv.innerText="You got "+score+" out of 5 right!✨";
+        }
+    </script>
     </body>
 </html>
